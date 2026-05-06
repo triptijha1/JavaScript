@@ -20,3 +20,37 @@ console.log(typeof isLoggedIn);
                 symbol => unique
             Objects
 */
+
+
+/**
+    
+    Primitive Data types - call by value...creates copy
+        String
+        Number
+        Boolean
+        Null
+        Undefined
+        Symbol
+        BigInt
+
+    Reference (Non primitive data type)
+        Array
+        Objects
+        Functions
+ */
+
+const id = Symbol('123')
+const anotherId = Symbol('123')
+
+console.log(id === anotherId);
+
+
+const heros = ["Superman", "Batman", "Marvel"];
+let myObj = {
+    name : "Tripti",
+    age : 24,
+}
+
+const myFunction = function (){
+    console.log("Hii");
+}
