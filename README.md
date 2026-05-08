@@ -847,6 +847,261 @@ Expands elements individually.
 
 ---
 
+# DOM (Document Object Model)
+
+DOM represents webpage structure as tree.
+
+---
+
+# DOM Structure
+
+```txt
+                                  Window
+                                    |
+                                  Document
+                                    |
+                                   HTML
+                                    |
+                  |                                |
+                head                              body
+        |                 |                        |
+      title              meta              div- attribute
+        |                  |            |                 |
+    text node           attribute       h1- attribute     p- textnode
+                                            text node
+```
+
+---
+
+# DOM Selectors
+
+---
+
+# querySelector()
+
+Selects first matching element.
+
+```js
+document.querySelector('.class')
+```
+
+---
+
+# querySelectorAll()
+
+Returns all matching elements.
+
+```js
+document.querySelectorAll('li')
+```
+
+---
+
+# innerText
+
+Returns only visible text.
+
+```js
+element.innerText
+```
+
+---
+
+# textContent
+
+Returns all text content.
+
+```js
+element.textContent
+```
+
+---
+
+# innerHTML
+
+Returns complete HTML content.
+
+```js
+element.innerHTML
+```
+
+---
+
+# Difference Between innerText, textContent & innerHTML
+
+| Property | Description |
+|---|---|
+| innerText | Visible text only |
+| textContent | All text including hidden |
+| innerHTML | Full HTML inside element |
+
+---
+
+# NodeList
+
+Returned by:
+```js
+querySelectorAll()
+```
+
+### Features
+- Looks like array
+- Not actual array
+- Supports `forEach()`
+- Does NOT support `map()`
+
+---
+
+# HTMLCollection
+
+Returned by:
+```js
+getElementsByClassName()
+```
+
+### Features
+- Collection of HTML elements
+- No direct looping methods
+- Convert to array first
+
+---
+
+# Convert HTMLCollection to Array
+
+```js
+Array.from(collection)
+```
+
+---
+
+# Creating Elements in DOM
+
+```js
+const div = document.createElement('div');
+```
+
+---
+
+# Adding Text
+
+```js
+const text = document.createTextNode("Hello");
+```
+
+---
+
+# Adding Elements
+
+```js
+parent.appendChild(child);
+```
+
+---
+
+# Editing Elements
+
+```js
+element.textContent = "Updated";
+```
+
+---
+
+# Replacing Elements
+
+```js
+oldElement.replaceWith(newElement);
+```
+
+---
+
+# Removing Elements
+
+```js
+element.remove();
+```
+
+---
+
+# DOM Traversal
+
+| Property | Description |
+|---|---|
+| parentElement | Access parent |
+| children | Access child elements |
+| firstElementChild | First child |
+| lastElementChild | Last child |
+| nextElementSibling | Next sibling |
+
+---
+
+# childNodes vs children
+
+| childNodes | children |
+|---|---|
+| Includes text nodes | Only HTML elements |
+| Includes spaces/comments | Only elements |
+
+---
+
+# Loops in JavaScript
+
+---
+
+# for Loop
+
+```js
+for(let i = 0; i < 5; i++){
+
+    console.log(i);
+}
+```
+
+---
+
+# while Loop
+
+```js
+while(condition){
+
+}
+```
+
+---
+
+# do while Loop
+
+```js
+do{
+
+}while(condition)
+```
+
+---
+
+# for...of Loop
+
+Used for iterable values.
+
+```js
+for(const value of arr){
+
+}
+```
+
+---
+
+# for...in Loop
+
+Used for object keys.
+
+```js
+for(const key in obj){
+
+}
+```
+
+---
+
 # Quick Revision Table 🚀
 
 | Topic | Key Point |
@@ -863,5 +1118,11 @@ Expands elements individually.
 | First Class Function | Functions behave like variables |
 | IIFE | Function executes immediately |
 | this | Refers to current context |
+| DOM | Tree structure of webpage |
+| NodeList | Supports forEach |
+| HTMLCollection | Convert to array first |
+| map() | Returns transformed array |
+| filter() | Returns filtered array |
+| reduce() | Returns single value |
 
 ---

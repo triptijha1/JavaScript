@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- ========================== META DATA ========================== -->
+
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title -->
+    <title>DOM with Tripti</title>
+
+</head>
+<body style="background-color: #212121; color: #ffff;">
+
+    <!-- ========================== PARENT DIV ========================== -->
+
+    <div class="parent">
+
+        <!-- Child elements -->
+        <div class="day">Monday</div>
+
+        <div class="day">Tuesday</div>
+
+        <div class="day">Wednesday</div>
+
+        <div class="day">Thursday</div>
+
+        <div class="day">Friday</div>
+
+        <div class="day">Saturday</div>
+
+        <div class="day">Sunday</div>
+
+    </div>
+
+</body>
+<script>
+
+    // ========================== SELECTING ELEMENT ==========================
+
+    /**
+     * querySelector()
+     *
+     * -> Selects first matching element
+     */
+
+    const parent = document.querySelector('.parent');
+
+    // ========================== ACCESSING CHILDREN ==========================
+
+    /**
+     * children
+     *
+     * -> Returns HTMLCollection of child elements
+     */
+
+    console.log(parent);
+    console.log(parent.children);
+    console.log(parent.children[1].innerHTML);
+
+
+
+    // ========================== LOOP THROUGH CHILDREN ==========================
+
+    /**
+     * Accessing all child elements using loop
+     */
+
+    for(let i = 0; i < parent.children.length; i++){
+
+        console.log(parent.children[i].innerHTML);
+    }
+
+    /**
+     * Output:
+     *
+     * Monday
+     * Tuesday
+     * Wednesday
+     * Thursday
+     * Friday
+     * Saturday
+     * Sunday
+     */
+
+
+
+    // ========================== STYLING CHILD ELEMENT ==========================
+
+    /**
+     * Changing color of Tuesday
+     */
+
+    parent.children[1].style.color = "orange";
+
+    // ========================== ACCESS SPECIFIC CHILD ==========================
+
+    console.log(parent.children[1]);
+
+    /**
+     * Output:
+     *
+     * <div class="day">Tuesday</div>
+     */
+
+
+
+    // ========================== FIRST & LAST ELEMENT ==========================
+
+    /**
+     * firstElementChild
+     * -> Returns first child element
+     */
+
+    console.log(parent.firstElementChild);
+
+    /**
+     * Output:
+     *
+     * <div class="day">Monday</div>
+     */
+
+
+
+    /**
+     * lastElementChild
+     * -> Returns last child element
+     */
+
+    console.log(parent.lastElementChild);
+
+    /**
+     * Output:
+     *
+     * <div class="day">Sunday</div>
+     */
+
+
+
+    // ========================== SELECT FIRST DAY ==========================
+
+    const dayOne = document.querySelector('.day');
+    console.log(dayOne);
+
+
+
+    /**
+     * Output:
+     *
+     * <div class="day">Monday</div>
+     */
+
+
+
+    // ========================== ACCESS PARENT ELEMENT ==========================
+
+    /**
+     * parentElement
+     *
+     * -> Returns parent node
+     */
+
+    console.log(dayOne.parentElement);
+
+    /**
+     * Output:
+     *
+     * <div class="parent">...</div>
+     */
+
+
+
+    // ========================== ACCESS NEXT SIBLING ==========================
+
+    /**
+     * nextElementSibling
+     *
+     * -> Returns next sibling element
+     */
+
+    console.log(dayOne.nextElementSibling);
+
+    /**
+     * Output:
+     *
+     * <div class="day">Tuesday</div>
+     */
+
+
+
+    // ========================== CHILD NODES ==========================
+
+    /**
+     * childNodes
+     *
+     * -> Returns ALL nodes
+     * -> Includes:
+     *      Elements
+     *      Text nodes
+     *      Line breaks
+     *      Spaces
+     */
+
+    console.log("NODES: ", parent.childNodes);
+
+
+
+    /**
+     * IMPORTANT:
+     *
+     * Browser treats spaces & line breaks
+     * as text nodes
+     *
+     * That's why childNodes length
+     * is usually greater than children length
+     */
+
+
+
+    // ========================== DIFFERENCE ==========================
+
+    /**
+     * children
+     * -> Returns only HTML elements
+     *
+     *
+     * childNodes
+     * -> Returns all nodes
+     * -> Includes text nodes & comments
+     */
+
+
+
+    // ========================== DOM TREE RELATIONS ==========================
+
+    /**
+     * parentElement
+     * -> Access parent
+     *
+     * children
+     * -> Access child elements
+     *
+     * firstElementChild
+     * -> First child element
+     *
+     * lastElementChild
+     * -> Last child element
+     *
+     * nextElementSibling
+     * -> Next sibling element
+     */
+
+</script>
+
+</html>

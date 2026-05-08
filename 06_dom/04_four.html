@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title -->
+    <title>DOM with Tripti</title>
+
+</head>
+
+
+
+<!-- ========================== BODY ========================== -->
+
+<body style="background-color: black; color: aliceblue;">
+    
+    <!-- Unordered list -->
+    <ul class="language">
+
+        <li>JavaScript</li>
+
+    </ul>
+
+</body>
+<script>
+
+    // ========================== ADD ELEMENT USING innerHTML ==========================
+
+    /**
+     * Function to add new language
+     *
+     * createElement()
+     * -> Creates new HTML element
+     *
+     * innerHTML
+     * -> Adds content inside element
+     */
+
+    function addLanguage(langName){
+
+        // Create new li element
+        const li = document.createElement('li');
+
+
+        // Add text inside li
+        li.innerHTML = `${langName}`;
+
+
+        // Append li into ul
+        document.querySelector('.language').appendChild(li);
+    }
+
+    // Adding languages
+    addLanguage("Python");
+    addLanguage("Java");
+
+    /**
+     * Current Output:
+     *
+     * JavaScript
+     * Python
+     * Java
+     */
+
+
+
+    // ========================== OPTIMIZED WAY ==========================
+
+    /**
+     * Better approach than innerHTML
+     *
+     * createTextNode():
+     * -> More optimized
+     * -> Better performance
+     * -> Avoids complete HTML parsing
+     */
+
+    function addOptiLanguage(langName){
+
+        // Create li element
+        const li = document.createElement('li');
+
+
+        // Create text node
+        li.appendChild(document.createTextNode(langName));
+
+
+        // Add li inside ul
+        document.querySelector('.language').appendChild(li);
+    }
+
+    // Adding more languages
+    addOptiLanguage("TypeScript");
+    addOptiLanguage("Golang");
+
+
+    /**
+     * Current Output:
+     *
+     * JavaScript
+     * Python
+     * Java
+     * TypeScript
+     * Golang
+     */
+
+
+
+    // ========================== EDIT ELEMENT ==========================
+
+    /**
+     * Selecting second li element
+     *
+     * nth-child(2)
+     * -> Selects second child
+     */
+
+    const secLang = document.querySelector("li:nth-child(2)");
+
+    // Create new li element
+    const newli = document.createElement('li');
+
+    // Add text
+    newli.textContent = "C++";
+
+    /**
+     * replaceWith()
+     *
+     * -> Replaces old element with new element
+     */
+
+    secLang.replaceWith(newli);
+
+
+    /**
+     * Updated Output:
+     *
+     * JavaScript
+     * C++
+     * Java
+     * TypeScript
+     * Golang
+     */
+
+
+
+    // ========================== EDIT USING outerHTML ==========================
+
+    /**
+     * first-child
+     * -> Selects first li element
+     */
+
+    const firstLang = document.querySelector("li:first-child");
+
+    /**
+     * outerHTML -> Replaces complete element
+    */
+
+    firstLang.outerHTML = '<li>Python</li>';
+
+    /**
+     * Updated Output:
+     *
+     * Python
+     * C++
+     * Java
+     * TypeScript
+     * Golang
+     */
+
+
+
+    // ========================== REMOVE ELEMENT ==========================
+
+    /**
+     * last-child
+     * -> Selects last element
+     */
+
+    const lastLang = document.querySelector("li:last-child");
+
+    /**
+     * remove() -> Removes selected element
+    */
+
+    lastLang.remove();
+
+
+    /**
+     * Final Output:
+     *
+     * Python
+     * C++
+     * Java
+     * TypeScript
+     */
+
+
+
+    // ========================== IMPORTANT DOM METHODS ==========================
+
+    /**
+     * document.createElement()
+     * -> Creates new HTML element
+     *
+     *
+     * document.createTextNode()
+     * -> Creates text node
+     *
+     *
+     * appendChild()
+     * -> Adds child element
+     *
+     *
+     * replaceWith()
+     * -> Replaces existing element
+     *
+     *
+     * outerHTML
+     * -> Replaces complete HTML element
+     *
+     *
+     * remove()
+     * -> Deletes element
+     */
+
+
+
+    // ========================== QUERY SELECTORS USED ==========================
+
+    /**
+     * .language
+     * -> Select class
+     *
+     *
+     * li:nth-child(2)
+     * -> Select second li
+     *
+     *
+     * li:first-child
+     * -> Select first li
+     *
+     *
+     * li:last-child
+     * -> Select last li
+     */
+
+</script>
+
+</html>
