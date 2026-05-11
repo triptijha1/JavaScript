@@ -1099,15 +1099,237 @@ for(const key in obj){
 
 }
 ```
+---
+
+# Promises in JavaScript
+
+The `Promise` object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
 
 ---
-promises in JS -
- The promise object represent the eventual completion(or failure) of an async operation & its resulting value
 
-A promise is one of these states:
-. pending : initial state, neither fullfilled nor rejected
-. fulfilled : meaning that operation was completed successfully
-.rejected : meaning that the operation failed
+# Promise States
+
+A Promise can be in one of these states:
+
+| State | Meaning |
+|---|---|
+| Pending | Initial state, neither fulfilled nor rejected |
+| Fulfilled | Operation completed successfully |
+| Rejected | Operation failed |
+
+---
+
+# Promise Syntax
+
+```js
+const promise = new Promise(function(resolve, reject){
+
+    let success = true;
+
+    if(success){
+
+        resolve("Promise resolved");
+
+    }else{
+
+        reject("Promise rejected");
+    }
+});
+```
+
+---
+
+# Consuming Promise
+
+```js
+promise
+.then((result) => {
+
+    console.log(result);
+
+})
+.catch((error) => {
+
+    console.log(error);
+
+})
+.finally(() => {
+
+    console.log("Promise completed");
+});
+```
+
+---
+
+# Promise Methods
+
+| Method | Description |
+|---|---|
+| then() | Executes when promise resolves |
+| catch() | Handles rejected promise |
+| finally() | Executes always |
+
+---
+
+# fetch() in JavaScript
+
+The global `fetch()` method starts the process of fetching a resource from the network.
+
+It returns a Promise which is fulfilled once the response is available.
+
+---
+
+# fetch() Syntax
+
+```js
+fetch(url)
+.then((response) => {
+
+    return response.json();
+
+})
+.then((data) => {
+
+    console.log(data);
+
+})
+.catch((error) => {
+
+    console.log(error);
+});
+```
+
+---
+
+# Important Note About fetch()
+
+⚠️ `fetch()` ONLY rejects when:
+
+- Network error occurs
+- Internet permission issue
+- Request cannot be completed
+
+👉 `fetch()` does **NOT reject** on HTTP errors like:
+- 404
+- 500
+- 403
+
+Instead, check:
+
+```js
+response.ok
+```
+
+or
+
+```js
+response.status
+```
+
+---
+
+# Example
+
+```js
+fetch('https://api.github.com/users/triptijha1')
+
+.then((response) => {
+
+    if(!response.ok){
+
+        throw new Error("HTTP Error");
+    }
+
+    return response.json();
+
+})
+
+.then((data) => {
+
+    console.log(data);
+
+})
+
+.catch((error) => {
+
+    console.log(error);
+});
+```
+
+---
+
+# async / await
+
+Cleaner way to handle promises.
+
+---
+
+# Example
+
+```js
+async function getData(){
+
+    try {
+
+        const response = await fetch(url);
+
+        const data = await response.json();
+
+        console.log(data);
+
+    } catch (error) {
+
+        console.log(error);
+    }
+}
+```
+
+---
+
+# Promise Flow
+
+```txt
+Pending
+   |
+   |---- resolve() ---> Fulfilled
+   |
+   |---- reject() ----> Rejected
+```
+
+---
+
+# Promise.all()
+
+Runs multiple promises together.
+
+```js
+Promise.all([promise1, promise2])
+
+.then((results) => {
+
+    console.log(results);
+
+})
+.catch((error) => {
+
+    console.log(error);
+});
+```
+
+---
+
+# Important Concepts
+
+| Concept | Meaning |
+|---|---|
+| Promise | Handles async operations |
+| Async Operation | Task taking time to complete |
+| Event Loop | Manages async execution |
+| Callback Queue | Stores async callbacks |
+| Fetch API | Makes HTTP requests |
+| JSON | Data exchange format |
+
+---
 
 # Quick Revision Table 🚀
 
@@ -1131,5 +1353,14 @@ A promise is one of these states:
 | map() | Returns transformed array |
 | filter() | Returns filtered array |
 | reduce() | Returns single value |
+| Promise | Handles asynchronous operations |
+| fetch() | Used to fetch data from network/API |
+| async/await | Cleaner syntax for promises |
+| then() | Executes after promise resolve |
+| catch() | Handles promise rejection |
+| finally() | Executes regardless of resolve/reject |
+| Event Loop | Handles async execution |
+| Callback Queue | Stores async callbacks |
+| JSON | Data exchange format |
 
 ---
