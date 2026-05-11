@@ -1101,6 +1101,13 @@ for(const key in obj){
 ```
 
 ---
+promises in JS -
+ The promise object represent the eventual completion(or failure) of an async operation & its resulting value
+
+A promise is one of these states:
+. pending : initial state, neither fullfilled nor rejected
+. fulfilled : meaning that operation was completed successfully
+.rejected : meaning that the operation failed
 
 # Quick Revision Table 🚀
 
